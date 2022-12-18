@@ -1,0 +1,4 @@
+file01.txt
+# Project exclude paths
+/java-prj1/target/
+/web-prj/target/

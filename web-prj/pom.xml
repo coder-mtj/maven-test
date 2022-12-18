@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>maven-test</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <!--版本号：release，snapshot分别代表完成版和开发板-->
+    <version>1.0 -snapshot</version>
+
+    <!--指定的pom的模型版本-->
+    <modelVersion>4.0.0</modelVersion>
+    <!--组织ID-->
+    <groupId>com.mtj</groupId>
+    <!--项目ID-->
+    <artifactId>web-prj</artifactId>
+    <!--打包方式，web工程打包为jar，java工程打包为jar-->
+    <packaging>war</packaging>
+    <name>web-prj Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <!--本项目所有的依赖-->
+    <dependencies>
+        <!--具体的依赖-->
+        <dependency>
+            <!--groupId和artifactId共同构成坐标-->
+            <!--一般是模块名-->
+            <groupId>junit</groupId>
+            <!--一般是域名-->
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <!--构建插件-->
+    <build>
+        <!--设置插件-->
+        <plugins>
+            <!--具体的插件配置-->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <port>80</port>
+                    <path>/</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
