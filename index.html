@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .blur-bg {
+            background-color: lightsteelblue;
+            background-size: cover;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+    <title>Personal Website</title>
+</head>
+
+<body class="bg-gray-100">
+<!-- Header -->
+<header class="bg-white shadow-lg">
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">马天俊-Resume</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800" id="about">About</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800" id="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero bg-cover bg-center h-screen flex items-center justify-center blur-bg">
+    <!-- Personal Image -->
+    <div class="w-full md:w-1/3 text-center">
+        <img src="https://img1.baidu.com/it/u=271771589,3270093893&fm=253&fmt=auto&app=138&f=JPEG?w=513&h=500"
+             alt="请链接网络" class="mx-auto rounded-full w-1/2">
+    </div>
+    <!-- Personal Slogan -->
+    <div class="w-full md:w-2/3 text-white text-center">
+        <h2 class="text-4xl font-bold mb-4">Consistent, Pure, Self-Belief, Solitude</h2>
+        <p class="text-lg">我的脊梁还没有弯下，我的腿还没有跪下，我的血还热乎着，我还觉得我可以为未来而去。
+            等到我的脊梁弯下了，我的腿跪下来了，我的血凉了，我可以抛弃过往了，我会和你一起呆在这里。
+        </p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="bg-white py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <h3 class="text-xl font-bold mb-2">Education</h3>
+                <p>现就读于哈佛(哈尔滨佛学院)</p>
+            </div>
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <h3 class="text-xl font-bold mb-2">Experience</h3>
+                <p>多次未获得诺贝尔奖</p>
+            </div>
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <h3 class="text-xl font-bold mb-2">Skills</h3>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>TypeScript</li>
+                    <li>Vue 3</li>
+                    <li>Redis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="bg-gray-200 py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 px-4 mb-8">
+                <h3 class="text-xl font-bold mb-2">Email</h3>
+                <p>mtj295152@gmail.com</p>
+            </div>
+            <div class="w-full md:w-1/2 px-4 mb-8">
+                <h3 class="text-xl font-bold mb-2">Phone</h3>
+                <p>3141592653</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+        &copy; 2023. All rights authorized by MTJ.
+    </div>
+</footer>
+
+</body>
+<script>
+    let about = document.getElementById("about");
+    let contact = document.getElementById("contact");
+
+    function scrollToBottom() {
+        let currentPosition = window.pageYOffset;
+        let targetPosition = document.body.scrollHeight;
+        let distance = targetPosition - currentPosition;
+        let duration = 5200; // 滚动持续时间，单位为毫秒
+        let startTime;
+
+        function scrollAnimation(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = timestamp - startTime;
+            let percentage = Math.min(progress / duration, 1);
+            let easing = percentage * (2 - percentage);
+
+            window.scrollTo(0, currentPosition + distance * easing);
+
+            if (progress < duration) {
+                window.requestAnimationFrame(scrollAnimation);
+            }
+        }
+
+        window.requestAnimationFrame(scrollAnimation);
+    }
+
+    about.addEventListener("click", function (ev){
+        scrollToBottom();
+    });
+
+    contact.addEventListener("click", function (ev){
+        scrollToBottom();
+    });
+</script>
+
+
+
+</html>
+
